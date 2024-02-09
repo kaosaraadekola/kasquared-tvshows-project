@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game of Throne Episodes</title>
+</head>
+
+<body>
+
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li> <a href="/aboutus">About Us</a></li>
+    <li> <a href="/contactus">Contact Us</a></li>
+  </ul>
+
+  <%- include("../partials/header.ejs", {title: "Game of Thrones Episodes"}) %>
+
+
+  <form>
+    <input type="text" name="searchTerm" placeholder="search here" />
+    <button type="submit">Search</button>
+  </form>
+
+  <p>Displaying <%= filteredArray.length %> Episodes</p>
+
+  <div>
+    <% for (let i = 0; i < gameOfThronesEpisodes.length; i++) { %>
+    <div class="episode-container">
+      <a href="/tvshows/<%= gameOfThronesEpisodes[i].id %>">
+        <b class="episode-title"><%= gameOfThronesEpisodes[i].name %></b>
+      </a> - <span class="episode-number"><%= 'S' + gameOfThronesEpisodes[i].season.toString().padStart(2, '0') + 'E' + gameOfThronesEpisodes[i].number.toString().padStart(2, '0') %></span>
+      <br>
+      <img id="image" src="<%= gameOfThronesEpisodes[i].image.medium %>">
+      <br>
+      <span class="episode-description"><%= gameOfThronesEpisodes[i].summary.slice(3, gameOfThronesEpisodes[i].summary.length - 4) %></span>
+      <hr />
+    </div>
+    <% } %>
+  </div>
+
+
+
+
+</body>
+
+</html>
+
+<%- include("../partials/footer.ejs") %>
