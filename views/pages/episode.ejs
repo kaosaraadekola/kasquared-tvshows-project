@@ -1,0 +1,34 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Winter is Coming</title>
+</head>
+
+<body>
+
+  <ul>
+    <li> <a href="/tvshows">Back to All TV Episodes</a></li>
+  </ul>
+
+  <%- include("../partials/header.ejs", {title: episode.name }) %>
+
+
+
+  <p> <b> Run Time:</b> <%= episode.runtime %> </p>
+  <p> <b> Average Rating: </b> <%= episode.rating.average %> </p>
+  <p> <b> Air Date: </b> <%= episode.airdate %> </p>
+  <img id="image" src="<%=episode.image.original %>">
+
+
+
+
+
+</body>
+
+</html>
+
+
+
+
+
+<%- include("../partials/footer.ejs") %>
